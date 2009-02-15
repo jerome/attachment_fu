@@ -42,9 +42,9 @@ module Technoweenie # :nodoc:
             commands.strip unless attachment_options[:keep_profile]
 
             # gif are not handled correct, this is a hack, but it seems to work.
-            if img.output =~ / GIF /
-              img.format("png")
-            end           
+            # if img.output =~ / GIF /
+            #   img.format("png")
+            # end           
             
             if size.is_a?(Fixnum) || (size.is_a?(Array) && size.first.is_a?(Fixnum))
               if size.is_a?(Fixnum)
