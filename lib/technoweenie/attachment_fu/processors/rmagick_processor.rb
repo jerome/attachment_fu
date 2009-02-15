@@ -12,7 +12,7 @@ module Technoweenie # :nodoc:
           # Yields a block containing an RMagick Image for the given binary data.
           def with_image(file, &block)
             begin
-              binary_data = file.is_a?(Magick::Image) ? file : Magick::Image.read(file).first unless !Object.const_defined?(:Magick)
+              binary_data = file.is_a?(Magick::Image) ? file : Magick::ImageList.read(file).first unless !Object.const_defined?(:Magick)
             rescue
               # Log the failure to load the image.  This should match ::Magick::ImageMagickError
               # but that would cause acts_as_attachment to require rmagick.
